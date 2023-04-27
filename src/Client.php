@@ -55,7 +55,7 @@ final class Client
     {
         $response = $this->sendRequest(__FUNCTION__);
 
-        if (!$response['categories']) {
+        if (!isset($response['categories'])) {
             throw TrademcApiErrorException::categoriesNotFound();
         }
 
