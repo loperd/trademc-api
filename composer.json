@@ -1,0 +1,22 @@
+{
+    "name": "loper/trademc-api",
+    "description": "Simple api integration with trademc.org",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Loper\\TrademcApi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "loper",
+            "email": "bizrenay@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.5",
+        "psr/http-client": "^1.0",
+        "nyholm/psr7": "^1.7"
+    }
+}
