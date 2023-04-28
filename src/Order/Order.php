@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Loper\TrademcApi\Response;
+namespace Loper\TrademcApi\Order;
 
 final class Order
 {

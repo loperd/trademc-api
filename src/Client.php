@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace Loper\TrademcApi;
 
-use Loper\TrademcApi\Response\BuyItem;
-use Loper\TrademcApi\Response\BuyItemCategory;
-use Loper\TrademcApi\Response\BuyItemCollection;
-use Loper\TrademcApi\Response\Order;
+use Loper\TrademcApi\BuyItem\BuyItem;
+use Loper\TrademcApi\BuyItem\BuyItemCategory;
+use Loper\TrademcApi\BuyItem\BuyItemCollection;
+use Loper\TrademcApi\BuyItem\Field\BuyItemField;
+use Loper\TrademcApi\Order\Order;
 use Loper\TrademcApi\Exception\TrademcApiErrorException;
 use Nyholm\Psr7\Request;
 use Psr\Http\Client\ClientInterface;
@@ -139,6 +140,13 @@ final class Client
     private function hydrateItems(array $items): array
     {
         return \array_map(static function (array $item) {
+            $fields = \array_map(static function (array $field) {
+                return new BuyItemField(
+                    $field['id'],
+                    $field['placeholder'],
+                    $field['flags']);
+            }, $item['fields'] ?? []);
+
             return new BuyItem(
                 id: $item['id'],
                 type: $item['type'],
@@ -146,8 +154,7 @@ final class Client
                 cost: $item['cost'],
                 image: $item['image'],
                 description: $item['description'],
-                fields: $item['fields'] ?? [],
-            );
+                fields: $fields);
         }, $items);
     }
 }

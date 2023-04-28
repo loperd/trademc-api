@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Loper\TrademcApi\Factory;
 
-use Loper\TrademcApi\Response\Order;
+use Loper\TrademcApi\Order\Order;
 
 final class PayUrlFactory
 {
