@@ -1,5 +1,5 @@
 {
-    "name": "loper/trademc-api",
+    "name": "loper/trademc-sdk",
     "description": "Simple api integration with trademc.org",
     "type": "library",
     "license": "MIT",
