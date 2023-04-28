@@ -13,6 +13,7 @@ final class BuyItem
         public readonly int $cost,
         public readonly string $image,
         public readonly string $description,
+        public readonly array $fields = [],
     ) {
     }
 }

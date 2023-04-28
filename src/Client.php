@@ -146,6 +146,7 @@ final class Client
                 cost: $item['cost'],
                 image: $item['image'],
                 description: $item['description'],
+                fields: $item['fields'] ?? [],
             );
         }, $items);
     }
